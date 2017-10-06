@@ -21,21 +21,19 @@ class DoubleList(object):
             self.tail.next = new_node
             self.tail = new_node
  
-    def remove(self, node_value):
-        current_node = self.head
  
-        while current_node is not None:
-            if current_node.data == node_value:
-                # if it's not the first element
-                if current_node.prev is not None:
-                    current_node.prev.next = current_node.next
-                    current_node.next.prev = current_node.prev
-                else:
-                    # otherwise we have no prev (it's None), head is the next one, and prev becomes None
-                    self.head = current_node.next
-                    current_node.next.prev = None
- 
-            current_node = current_node.next
+    def reverse(self):
+        temp = None
+        current = self.head
+
+        while current is not None:
+            temp = current.prev
+            current.prev = current.next
+            current.next = temp
+
+        if current is None:
+            current.prev = self.head
+            
  
     def show(self):
         print "Show list data:"
@@ -46,3 +44,29 @@ class DoubleList(object):
             print current_node.next.data if hasattr(current_node.next, "data") else None
  
             current_node = current_node.next
+            print "*"*50
+ 
+ 
+d = DoubleList()
+ 
+d.append("a")
+d.show()
+d.append("b")
+d.show()
+
+print "+++++++++++++++++++++"
+
+d.reverse()
+d.show()
+
+
+
+
+
+
+
+
+
+
+
+
