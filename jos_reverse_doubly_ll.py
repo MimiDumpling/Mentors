@@ -30,28 +30,27 @@ class DoubleList(object):
             temp = current.prev
             current.prev = current.next
             current.next = temp
+            self.head = current
+            current = current.prev
 
-        if current is None:
-            current.prev = self.head
+        
             
  
     def show(self):
         print "Show list data:"
         current_node = self.head
         while current_node is not None:
-            print current_node.prev.data if hasattr(current_node.prev, "data") else None,
-            print current_node.data,
-            print current_node.next.data if hasattr(current_node.next, "data") else None
+            print current_node.data
  
             current_node = current_node.next
-            print "*"*50
+            
  
  
 d = DoubleList()
  
-d.append("a")
-d.show()
-d.append("b")
+d.append(1)
+d.append(2)
+d.append(3)
 d.show()
 
 print "+++++++++++++++++++++"
