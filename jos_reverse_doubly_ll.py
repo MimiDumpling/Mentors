@@ -22,17 +22,19 @@ class DoubleList(object):
             self.tail = new_node
  
  
-    def reverse(self):
-        temp = None
-        current = self.head
+    # def reverse(self):
+    #     temp = None
+    #     current = self.head
 
-        while current is not None:
-            temp = current.prev
-            current.prev = current.next
-            current.next = temp
-            self.head = current
-            current = current.prev
+    #     while current is not None:
+    #         temp = current.prev
+    #         current.prev = current.next
+    #         current.next = temp
+    #         self.head = current
+    #         current = current.prev
 
+    def reverse_recursively(self):
+        
         
             
  
