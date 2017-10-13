@@ -38,11 +38,11 @@ class DoubleList(object):
         current = self.head
 
         # base case
-        
         if current is None:
             return current
 
         # call function on itself
+        # use helper function to redefine self.head?
 
     def helper(self):
         "Visit a node and switch the next & prev"
@@ -70,7 +70,7 @@ d.show()
 
 print "+++++++++++++++++++++"
 
-d.reverse()
+d.reverse_recursively()
 d.show()
 
 

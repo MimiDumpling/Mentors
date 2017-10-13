@@ -30,11 +30,27 @@ def is_prime(num):
     return True
 
 
+
 def print_prime(max):
 
-    for potential_prime in range (2, max):
+    numbers = range(2, max)
+
+    for potential_prime in numbers:
         if is_prime(potential_prime):
-            print potential_prime
+            for i in range((potential_prime*potential_prime), max, potential_prime):
+                numbers.pop(i)
+                print "+++++++++"
+                print numbers
+
+    print "********"
+    print numbers
+
+
+# def print_prime(max):
+
+#     for potential_prime in range (2, max):
+#         if is_prime(potential_prime):
+#             print potential_prime
 
 
 
