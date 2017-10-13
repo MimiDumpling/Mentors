@@ -18,3 +18,29 @@ no other prime nums that have multiples.
 Print out the remaining nums, which should
 all be prime between 2 - limit (or max).
 """
+
+def is_prime(num):
+    
+    if num == 2:
+        return True
+
+    for potential_divider in range(2, num):
+        if num % potential_divider == 0:
+            return False
+    return True
+
+
+def print_prime(max):
+
+    for potential_prime in range (2, max):
+        if is_prime(potential_prime):
+            print potential_prime
+
+
+
+
+
+print_prime(15)
+
+
+

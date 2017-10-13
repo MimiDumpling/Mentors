@@ -38,6 +38,7 @@ class DoubleList(object):
         current = self.head
 
         # base case
+        
         if current is None:
             return current
 
