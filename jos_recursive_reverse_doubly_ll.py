@@ -33,23 +33,12 @@ class DoubleList(object):
             self.tail.next = new_node
             self.tail = new_node
 
- 
-    # def reverse(self):
-    #     temp = None
-    #     current = self.head
-
-    #     while current is not None:
-    #         temp = current.prev
-    #         current.prev = current.next
-    #         current.next = temp
-    #         self.head = current
-    #         current = current.prev
 
     def reverse_recursively(self):
 
         current = self.head
 
-        if self.head is None:
+        if current is None:
             return "List is empty."
 
         # base case
@@ -79,6 +68,7 @@ class DoubleList(object):
         # call function on itself
         # use helper function to redefine self.head?
 
+        
     # def helper(self):
     #     "Visit a node and switch the next & prev"
             
@@ -104,15 +94,3 @@ print "+++++++++++++++++++++"
 
 d.reverse_recursively()
 d.show()
-
-
-
-
-
-
-
-
-
-
-
-
