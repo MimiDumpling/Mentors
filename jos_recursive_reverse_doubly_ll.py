@@ -11,10 +11,10 @@ class Node(object):
     def getNext(self):
         return self.next
 
-    def setData(self,newdata):
+    def setData(self, newdata):
         self.data = newdata
 
-    def setNext(self,newnext):
+    def setNext(self, newnext):
         self.next = newnext
  
  
@@ -32,31 +32,35 @@ class DoubleList(object):
             new_node.next = None
             self.tail.next = new_node
             self.tail = new_node
+            
+ 
+    def show(self):
+        print "Show list data:"
+        current_node = self.head
+        while current_node is not None:
+            print current_node.data
+ 
+            current_node = current_node.next
 
 
-    def reverse_recursively(self):
+def reverse_recursively(node):
 
-        current = self.head
+    # base case
+    if node.next is None:
+        print "*****"
+        print "This is node: ", node.data
+        print "This is node.prev: ", node.prev.data
+        print "This is node.prev.prev: ", node.prev.prev.data
+        return
 
-        if current is None:
-            return "List is empty."
+    else:
+        temp1 = node
+        temp2 = node.prev
+        node.prev = node.next
+        node.next = temp2
+        node = node.prev
 
-        # base case
-        if current.next is None:
-            self.head = current
-            return
-
-        else:
-            temp = current.prev
-            current.prev = current.next
-            current.next = temp
-            self.head = current
-            current = current.prev
-
-        if current.prev is None:
-            return
-        else:
-            reverse_recursively()
+    return reverse_recursively(node)
 
 
 
@@ -70,17 +74,7 @@ class DoubleList(object):
 
         
     # def helper(self):
-    #     "Visit a node and switch the next & prev"
-            
- 
-    def show(self):
-        print "Show list data:"
-        current_node = self.head
-        while current_node is not None:
-            print current_node.data
- 
-            current_node = current_node.next
-            
+    #     "Visit a node and switch the next & prev"            
  
  
 d = DoubleList()
@@ -92,5 +86,5 @@ d.show()
 
 print "+++++++++++++++++++++"
 
-d.reverse_recursively()
+reverse_recursively(d.head)
 d.show()
