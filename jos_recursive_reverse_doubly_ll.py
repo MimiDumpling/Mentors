@@ -43,24 +43,45 @@ class DoubleList(object):
             current_node = current_node.next
 
 
-def reverse_recursively(node):
+def reverse_recursively(head):
 
-    # base case
-    if node.next is None:
-        print "*****"
-        print "This is node: ", node.data
-        print "This is node.prev: ", node.prev.data
-        print "This is node.prev.prev: ", node.prev.prev.data
-        return
-
+    if head is None:
+        return head
     else:
-        temp1 = node
-        temp2 = node.prev
-        node.prev = node.next
-        node.next = temp2
-        node = node.prev
+        return head.append(reverse_recursively(head.prev))
 
-    return reverse_recursively(node)
+    # if head is None:
+    #     return head.prev
+    # else:
+    #     temp = head.prev
+    #     print "**********"
+    #     #print temp.data
+    #     head.prev = head.next
+    #     head.next = temp
+    #     print "This is head.prev: ", head.prev.data
+    #     print "This is head.next: ", head.next.data
+
+    # if head.prev is None:
+    #     return head
+
+    # return reverse_recursively(head.prev)
+
+    # # base case
+    # if node.next is None:
+    #     print "*****"
+    #     print "This is node: ", node.data
+    #     print "This is node.prev: ", node.prev.data
+    #     print "This is node.prev.prev: ", node.prev.prev.data
+    #     return
+
+    # else:
+    #     temp1 = node
+    #     temp2 = node.prev
+    #     node.prev = node.next
+    #     node.next = temp2
+    #     node = node.prev
+
+    # return reverse_recursively(node)
 
 
 
