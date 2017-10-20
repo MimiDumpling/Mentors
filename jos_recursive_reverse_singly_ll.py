@@ -42,14 +42,28 @@ def reverse(sll, current_node):
     # Magic happens here
     # sll is only passed in so that you can update head when you hit the base case
 
-    head = current_node
-    next = current_node.next
+    def reverse_helper(current_node, prev_node):
 
-    if next is None:
-        sll.head = head
-        return head
-    else:
-        return reverse(head.next)
+        if current_node is None:
+            return prev_node
+
+        next_node = current_node.next
+        current_node.next = prev_node
+        prev_node = current_node
+        current_node = next_node
+
+        return reverse_helper(current_node, prev_node)
+
+    sll.head = current_node
+
+    # if current_node is None:
+    #     sll.head = current_node
+    #     return sll.head
+    # else:
+    #     print current_node.data
+    #     print "++++++"
+    #     print current_node.next.data
+    #     return reverse(sll, current_node.next)
 
 
 if __name__ == '__main__':
