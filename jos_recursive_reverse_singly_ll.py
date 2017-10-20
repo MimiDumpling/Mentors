@@ -42,6 +42,15 @@ def reverse(sll, current_node):
     # Magic happens here
     # sll is only passed in so that you can update head when you hit the base case
 
+    head = current_node
+    next = current_node.next
+
+    if next is None:
+        sll.head = head
+        return head
+    else:
+        return reverse(head.next)
+
 
 if __name__ == '__main__':
     s = SingleList()
