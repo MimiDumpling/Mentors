@@ -48,22 +48,12 @@ def reverse(sll, current_node):
             return prev_node
 
         next_node = current_node.next
-        print "This is next_node: ", next_node.data
-
         current_node.next = prev_node
-        print "This is current_node.next: ", current_node.next.data
-
         prev_node = current_node
-        print "prev_node: ", prev_node.data
-
         current_node = next_node
-        print "current_node: ", current_node.data
-
         return reverse_helper(current_node, prev_node)
-
-    reverse_helper(sll, sll.head)    
-
-
+        
+    sll.head = reverse_helper(current_node=sll.head, prev_node=None)
 
     # if current_node is None:
     #     sll.head = current_node
