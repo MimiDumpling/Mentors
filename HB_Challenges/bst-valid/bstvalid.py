@@ -72,6 +72,24 @@ class Node:
     def is_valid(self):
         """Is this tree a valid BST?"""
 
+        # write the base case
+        # traverse the tree
+        # check the data in each node
+        # call the function on itself
+
+        # base case
+        if self.data is None:
+            return True
+
+        current = self
+
+        while current:
+            if (current.left < current) and (current.right > current):
+                current = current.next
+            else:
+                return False
+        return True
+
 if __name__ == "__main__":
     import doctest
 
