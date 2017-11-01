@@ -47,7 +47,16 @@ class Tree:
                 self.recurs_add(value, node.right)
             else:
                 node.right = Node(value)
-    
+
+    def inorder(self, node):
+
+        if node is not None:
+            self.inorder(node.left)
+            print node.data
+
+            self.inorder(node.right)
+            print node.data
+
 
     
 
