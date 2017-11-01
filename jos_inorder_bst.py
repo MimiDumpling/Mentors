@@ -13,24 +13,9 @@ class Node:
 
         return "<Node %s>" % self.data
 
-    def find(self, data):
-        """Return node object with this data.
+    
 
-        Start here. Return None if not found.
-        """
-
-        to_visit = [self]
-
-        while to_visit:
-            current = to_visit.pop()
-
-            if current.data == data:
-                return current
-
-            to_visit.extend(current.children)
-
-
-class SearchTree:
+class Tree:
     """Makes a search tree."""
 
     def __init__(self):
@@ -43,14 +28,28 @@ class SearchTree:
 
         return "<Tree root=%s>" % self.root
 
-    def find_in_tree(self, data):
-        """Return node object with this data.
+    def add(self, value):
+        """Adds a node."""
 
-        Start at root.
-        Return None if not found.
-        """
+        if self.root == None:
+            self.root = Node(value)
+        else:
+            self.recurs_add(value, self.root)
 
-        return self.root.find(data)
+    def recurs_add(self, value, node):
+        if value < node.data:
+            if node.left is not None:
+                self.recurs_add(value, node.left)
+            else:
+                node.left = Node(value)
+        else:
+            if node.right is not None:
+                self.recurs_add(value, node.right)
+            else:
+                node.right = Node(value)
+    
+
+    
 
 
 
