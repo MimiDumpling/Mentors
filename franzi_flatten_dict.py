@@ -38,7 +38,7 @@ n = {
 }
 
 
-def flat(n, flattend={}, path=""):
+def flat(n, flattend, path):
 
     # def f(d):
     print flattend
@@ -61,5 +61,5 @@ def flat(n, flattend={}, path=""):
     print flattend
     return flattend
 
-
-print flat(n)
+result_dict = {}
+print flat(n, result_dict, "")
