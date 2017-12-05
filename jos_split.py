@@ -9,7 +9,7 @@ Edge cases to keep in mind:
     ["sup"]
 """
 
-def split_me (char, string):
+def split_me(char, string):
 
     result = []
 
@@ -17,10 +17,12 @@ def split_me (char, string):
 
     for index, x in enumerate(string):
         if x == char:
-            result.append(string[last_seen + 1 : index])
+            result.append(string[(last_seen + 1):index])
 
             last_seen = index
 
-        result.append(string[last_seen: ])
+    result.append(string[last_seen:])
 
     return result
+
+print "Test 1: ", split_me(" ", "hi there")
