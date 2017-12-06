@@ -19,10 +19,11 @@ def sieve(n):
     for num in range(2, n+1):
         if num not in not_prime:
             print (num)
+
+            # this takes care of multiples of a prime num
             for other_num in range(num*num, n+1, num):
                 not_prime.append(other_num)
 
-    print not_prime
 
 print "this is test: ", sieve(13)
 
