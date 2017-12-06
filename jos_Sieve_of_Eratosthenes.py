@@ -26,9 +26,3 @@ def sieve(n):
 
 
 print "this is test: ", sieve(13)
-
-
-
-
-
-
