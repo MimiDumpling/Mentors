@@ -16,7 +16,7 @@ def split_me(char, string):
     last_seen = -1
 
     if char == "":
-        char = " "
+        return "Sorry, doesn't work if char is an empty string."
 
     for index, x in enumerate(string):
 
@@ -40,8 +40,7 @@ print "Test 3: ", split_me(" ", "hey there")
 print "Test 4: ", split_me(" ", "hey there, you")
 print "Test 5: ", split_me(" ", "hey       there")
 print "Test 6: ", split_me("", "hey       there")
-print "Test 7: ", split_me("", "hey there")
-print "Test 8: ", split_me("e", "hey there")
+print "Test 7: ", split_me("e", "hey there")
 
 
 
