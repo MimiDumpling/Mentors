@@ -15,14 +15,35 @@ def split_me(char, string):
 
     last_seen = -1
 
+    if char == "":
+        char = " "
+
     for index, x in enumerate(string):
-        if x == char:
+
+        if x == char and last_seen + 1 != index:
+
             result.append(string[(last_seen + 1):index])
 
             last_seen = index
 
-    result.append(string[last_seen:])
+    if result == []:
+        result.append(string)
+        return result
+    else:
+        result.append(string[last_seen + 1:])
 
-    return result
+        return result
 
-print "Test 1: ", split_me(" ", "hi there")
+print "Test 1: ", split_me(" ", "")
+print "Test 2: ", split_me(" ", "hey")
+print "Test 3: ", split_me(" ", "hey there")
+print "Test 4: ", split_me(" ", "hey there, you")
+print "Test 5: ", split_me(" ", "hey       there")
+print "Test 6: ", split_me("", "hey       there")
+print "Test 7: ", split_me("", "hey there")
+print "Test 8: ", split_me("e", "hey there")
+
+
+
+
+
