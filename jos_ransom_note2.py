@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 """
 Ransom Note:
 
@@ -13,17 +15,15 @@ def ransom(string1, string2):
 
     split_string1 = string1.split(" ")
     split_string2 = string2.split(" ")
-    note = {}
+    note = defaultdict(int)
 
-    if len(split_string1) != len(split_string2):
+    if len(split_string1) > len(split_string2):
         return False
 
     for word in split_string1:
-        if word in note:
-            note[word] += 1
-        else:
-            note[word] = 1
-
+        note[word] += 1
+        
+    # Fix logic. See ransom_note.py
     for word in split_string2:
         if note.get(word) == 0:
             return False

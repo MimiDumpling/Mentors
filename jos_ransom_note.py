@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 """
 Ransom Note:
 
@@ -9,26 +11,28 @@ Ransom Note:
 THIS SOLUTION SOLVES FOR LETTERS
 """
 
+# more meaningful parameters
 def ransom(string1, string2):
 
-    note = {}
+    note = defaultdict(int)
 
     for letter in string1:
-        if letter in note:
-            note[letter] += 1
-        else:
-            note[letter] = 1
+        # Look into default dict
+        note[letter] += 1
+        
 
     for letter in string2:
+        # WARNING: this applies to letters we aren't even focusing on
         if note.get(letter) == 0:
             return False
 
         if letter in note:
             note[letter] -= 1  
+        # WARNING    
         else:
             return False
 
     return True
 
-
+# write more tests
 print ransom("The cat is here.", "The cat is near.")
