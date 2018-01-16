@@ -12,27 +12,32 @@ THIS SOLUTION SOLVES FOR LETTERS
 """
 
 # more meaningful parameters
-def ransom(string1, string2):
+def ransom(ransom, magazine):
 
-    note = defaultdict(int)
+    available = defaultdict(int)
 
-    for letter in string1:
+    if len(ransom) > len(magazine):
+        return False
+
+    for letter in magazine:
         # Look into default dict
-        note[letter] += 1
-        
-
-    for letter in string2:
-        # WARNING: this applies to letters we aren't even focusing on
-        if note.get(letter) == 0:
+        available[letter] += 1
+    
+    for letter in ransom:
+        if available[letter] < 0:
             return False
 
-        if letter in note:
-            note[letter] -= 1  
-        # WARNING    
+        if letter in available:
+            available[letter] -= 1
         else:
             return False
 
     return True
 
+
 # write more tests
 print ransom("The cat is here.", "The cat is near.")
+print ransom ("Oh hi.", "car")
+print ransom (" ", " ")
+print ransom ("Hi", "")
+print ransom ("Hi", " ")
