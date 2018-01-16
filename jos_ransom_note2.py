@@ -62,6 +62,7 @@ print ransom("My", "Cat")
 # print ransom("", " ")
 # print ransom("Hey", " ")
 
+dictionary.items()
 
 
 
