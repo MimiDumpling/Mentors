@@ -32,12 +32,13 @@ def ransom(ransom, magazine):
         else:
             return False
 
+    print available
     return True
 
 
 # write more tests
-print ransom("The cat is here.", "The cat is near.")
-print ransom ("Oh hi.", "car")
-print ransom (" ", " ")
-print ransom ("Hi", "")
-print ransom ("Hi", " ")
+print ransom("cat", "hat")
+# print ransom ("Oh hi.", "car")
+# print ransom (" ", " ")
+# print ransom ("Hi", "")
+# print ransom ("Hi", " ")

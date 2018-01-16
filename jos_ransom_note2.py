@@ -11,28 +11,60 @@ Ransom Note:
 THIS SOLUTION SOLVES FOR WORDS
 """
 
-def ransom(string1, string2):
+def ransom(ransom, magazine):
 
-    split_string1 = string1.split(" ")
-    split_string2 = string2.split(" ")
-    note = defaultdict(int)
-
-    if len(split_string1) > len(split_string2):
+    if len(ransom) > len(magazine):
         return False
 
-    for word in split_string1:
+    split_ransom = ransom.split(" ")
+    split_magazine = magazine.split(" ")
+    note = defaultdict(int)
+
+    for word in split_magazine:
         note[word] += 1
-        
-    # Fix logic. See ransom_note.py
-    for word in split_string2:
-        if note.get(word) == 0:
+
+    print split_magazine
+    print note
+
+    for word in split_ransom:
+        if note[word] < 0:
             return False
+    print note
 
-        if word in note:
-            note[word] -= 1
-        else: 
-            return False
+    # #print "First note: ", note
 
-    return True
+    # for word in split_ransom:
+    #     if word not in note:
+    #         print False
+    #     else:
+    #         note[word] -= 1
 
-print ransom("cat hat", "cat has")
+    #     if note[word] < 0:
+    #         return False
+
+    #     # if note[word] < 0:
+    #         #return False
+
+    #     # if word in note:
+    #     #     note[word] -= 1
+    #     # else:
+    #     #     return False
+
+    # print note
+    # return True
+
+print "++++++++++++++++++++++++++++"
+print ransom("My", "Cat")
+# print ransom("cat hat", "cat has")
+# print ransom(" ", " ")
+# print ransom("Hi", "Hello")
+# print ransom("race car", "race car")
+# print ransom("", " ")
+# print ransom("Hey", " ")
+
+
+
+
+
+
+
