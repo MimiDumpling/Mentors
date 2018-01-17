@@ -13,59 +13,33 @@ THIS SOLUTION SOLVES FOR WORDS
 
 def ransom(ransom, magazine):
 
+    split_ransom = ransom.split(" ")
+    split_magazine = magazine.split(" ")
+    available = defaultdict(int)
+
     if len(ransom) > len(magazine):
         return False
 
-    split_ransom = ransom.split(" ")
-    split_magazine = magazine.split(" ")
-    note = defaultdict(int)
-
+    for word in split_ransom:
+        # Look into default dict
+        available[word] += 1
+    
     for word in split_magazine:
-        note[word] += 1
-
-    print split_magazine
-    print note
+        if available[word]:
+            available[word] -= 1
 
     for word in split_ransom:
-        if note[word] < 0:
+        if available[word] > 0:
             return False
-    print note
 
-    # #print "First note: ", note
+    return True
 
-    # for word in split_ransom:
-    #     if word not in note:
-    #         print False
-    #     else:
-    #         note[word] -= 1
-
-    #     if note[word] < 0:
-    #         return False
-
-    #     # if note[word] < 0:
-    #         #return False
-
-    #     # if word in note:
-    #     #     note[word] -= 1
-    #     # else:
-    #     #     return False
-
-    # print note
-    # return True
-
-print "++++++++++++++++++++++++++++"
-print ransom("My", "Cat")
-# print ransom("cat hat", "cat has")
-# print ransom(" ", " ")
-# print ransom("Hi", "Hello")
-# print ransom("race car", "race car")
-# print ransom("", " ")
-# print ransom("Hey", " ")
-
-dictionary.items()
-
-
-
-
-
+print "+++TESTS+++"
+print "1. Correct: False, Result: ", ransom("cat in car", "cat in box")
+print "2. Correct: False, Result: ", ransom("Oh", "car")
+print "3. Correct: False, Result: ", ransom("Hello", "Hello you")
+print "4. Correct: False, Result: ", ransom("Hi", "")
+print "5. Correct: False, Result: ", ransom("Hi", " ")
+print "6. Correct: True, Result: ", ransom(" ", " ")
+print "7. Correct: True, Result: ", ransom("Meow meow", "Meow meow")
 

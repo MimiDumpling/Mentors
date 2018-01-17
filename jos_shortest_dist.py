@@ -7,6 +7,7 @@ their values. Return the difference of those
 two integers.
 
 BONUS: solve for 2 unsorted lists
+BONUS: re-write with no maxsize and start at index 1
 """
 
 def short_dist(integers):

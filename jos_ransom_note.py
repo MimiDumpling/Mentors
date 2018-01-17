@@ -11,7 +11,6 @@ Ransom Note:
 THIS SOLUTION SOLVES FOR LETTERS
 """
 
-# more meaningful parameters
 def ransom(ransom, magazine):
 
     available = defaultdict(int)
@@ -19,26 +18,28 @@ def ransom(ransom, magazine):
     if len(ransom) > len(magazine):
         return False
 
-    for letter in magazine:
+    for letter in ransom:
         # Look into default dict
         available[letter] += 1
     
-    for letter in ransom:
-        if available[letter] < 0:
-            return False
-
-        if letter in available:
+    for letter in magazine:
+        if available[letter]:
             available[letter] -= 1
-        else:
+
+    for letter in ransom:
+        if available[letter] > 0:
             return False
 
-    print available
     return True
 
+print "+++TESTS+++"
+print "1. Correct: False, Result: ", ransom("cat", "car")
+print "2. Correct: False, Result: ", ransom("Oh", "car")
+print "3. Correct: False, Result: ", ransom("Hello", "yo")
+print "4. Correct: False, Result: ", ransom("Hi", "")
+print "5. Correct: False, Result: ", ransom("Hi", " ")
+print "6. Correct: True, Result: ", ransom(" ", " ")
+print "7. Correct: True, Result: ", ransom("Meow", "Meow")
+print "8. Correct: False, Result: ", ransom("Meoow", "Meowwwww")
+# why doesn't "w" register as a neg num when we print dict?
 
-# write more tests
-print ransom("cat", "hat")
-# print ransom ("Oh hi.", "car")
-# print ransom (" ", " ")
-# print ransom ("Hi", "")
-# print ransom ("Hi", " ")
