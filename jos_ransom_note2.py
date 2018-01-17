@@ -11,7 +11,7 @@ Ransom Note:
 THIS SOLUTION SOLVES FOR WORDS
 """
 
-def ransom(ransom, magazine):
+def ransom_note(ransom, magazine):
 
     split_ransom = ransom.split(" ")
     split_magazine = magazine.split(" ")
@@ -35,11 +35,11 @@ def ransom(ransom, magazine):
     return True
 
 print "+++TESTS+++"
-print "1. Correct: False, Result: ", ransom("cat in car", "cat in box")
-print "2. Correct: False, Result: ", ransom("Oh", "car")
-print "3. Correct: False, Result: ", ransom("Hello", "Hello you")
-print "4. Correct: False, Result: ", ransom("Hi", "")
-print "5. Correct: False, Result: ", ransom("Hi", " ")
-print "6. Correct: True, Result: ", ransom(" ", " ")
-print "7. Correct: True, Result: ", ransom("Meow meow", "Meow meow")
+print "1. Correct: False, Result: ", ransom_note("cat in car", "cat in box")
+print "2. Correct: False, Result: ", ransom_note("Oh", "car")
+print "3. Correct: False, Result: ", ransom_note("Hello", "Hello you")
+print "4. Correct: False, Result: ", ransom_note("Hi", "")
+print "5. Correct: False, Result: ", ransom_note("Hi", " ")
+print "6. Correct: True, Result: ", ransom_note(" ", " ")
+print "7. Correct: True, Result: ", ransom_note("Meow meow", "Meow meow")
 

@@ -11,7 +11,7 @@ Ransom Note:
 THIS SOLUTION SOLVES FOR LETTERS
 """
 
-def ransom(ransom, magazine):
+def ransom_note(ransom, magazine):
 
     available = defaultdict(int)
 
@@ -20,7 +20,7 @@ def ransom(ransom, magazine):
 
     for letter in ransom:
         available[letter] += 1
-        
+
     #print "dict for just ransom: ", available
 
     for letter in magazine:
@@ -36,13 +36,13 @@ def ransom(ransom, magazine):
     return True
 
 print "+++TESTS+++"
-print "1. Correct: False, Result: ", ransom("cat", "car")
-print "2. Correct: False, Result: ", ransom("Oh", "car")
-print "3. Correct: False, Result: ", ransom("Hello", "yo")
-print "4. Correct: False, Result: ", ransom("Hi", "")
-print "5. Correct: False, Result: ", ransom("Hi", " ")
-print "6. Correct: True, Result: ", ransom(" ", " ")
-print "7. Correct: True, Result: ", ransom("Meow", "Meow")
-print "8. Correct: False, Result: ", ransom("Meoow", "Meowwwww")
+print "1. Correct: False, Result: ", ransom_note("cat", "car")
+print "2. Correct: False, Result: ", ransom_note("Oh", "car")
+print "3. Correct: False, Result: ", ransom_note("Hello", "yo")
+print "4. Correct: False, Result: ", ransom_note("Hi", "")
+print "5. Correct: False, Result: ", ransom_note("Hi", " ")
+print "6. Correct: True, Result: ", ransom_note(" ", " ")
+print "7. Correct: True, Result: ", ransom_note("Meow", "Meow")
+print "8. Correct: False, Result: ", ransom_note("Meoow", "Meowwwww")
 # why doesn't "w" register as a neg num when we print dict?
 
