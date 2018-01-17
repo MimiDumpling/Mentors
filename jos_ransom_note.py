@@ -19,12 +19,15 @@ def ransom(ransom, magazine):
         return False
 
     for letter in ransom:
-        # Look into default dict
         available[letter] += 1
-    
+        
+    #print "dict for just ransom: ", available
+
     for letter in magazine:
         if available[letter]:
             available[letter] -= 1
+
+    #print "dict after magazine search: ", available
 
     for letter in ransom:
         if available[letter] > 0:
