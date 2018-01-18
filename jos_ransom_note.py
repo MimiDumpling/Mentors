@@ -21,13 +21,8 @@ def ransom_note(ransom, magazine):
     for letter in ransom:
         available[letter] += 1
 
-    #print "dict for just ransom: ", available
-
     for letter in magazine:
-        if available[letter]:
-            available[letter] -= 1
-
-    #print "dict after magazine search: ", available
+        available[letter] -= 1
 
     for letter in ransom:
         if available[letter] > 0:
