@@ -20,8 +20,8 @@ def syntax_chkr(string):
     if string == "" or string == " ":
         return False
 
-    for character in range(1, len(string), 2):
-        if string[character] is not ",":
+    for index in range(1, len(string), 2):
+        if string[index] is not ",":
             return False
 
     return True
