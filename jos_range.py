@@ -17,7 +17,8 @@ attention to the optional "step" parameter.
 
 def syntax_chkr(string):
 
-    # range(start, stop, step)
+    if string == "" or string == " ":
+        return False
 
     for character in range(1, len(string), 2):
         if string[character] is not ",":
@@ -28,3 +29,5 @@ def syntax_chkr(string):
 
 print syntax_chkr("a,b,c")
 print syntax_chkr("a, bc")
+print syntax_chkr("")
+print syntax_chkr(" ")
