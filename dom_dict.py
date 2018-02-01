@@ -6,27 +6,20 @@ Write a class that does this:
 => 'Pan'
 
 """
-from collections import defaultdict
-
 
 class HashMap(object):
+
+    hash = {}
     
-    def __init__(self, animal, name):
+    def set_key(self, key, value):
+        self.hash[key] = value
 
-        self.animal = animal
-        self.name = name
+    def get_value(self, key):
+        return self.hash[key]
 
-    def set(self, animal, name):
+ready = HashMap()
+ready.set_key('cat', 'Pan')
+print ready.get_value('cat')
 
-        hashmap = defaultdict(list)
-
-        hashmap[self.animal].append(self.name)
-
-    def get(self, animal):
-
-        print hashmap[self.animal]
-
-
-ready = HashMap(cat, Pan)
-ready.set(cat, Pan)
-ready.set(dog, Max)
+ready.set_key('dog', 'Max')
+print ready.get_value('dog')
