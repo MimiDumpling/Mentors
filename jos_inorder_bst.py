@@ -56,10 +56,3 @@ class Tree:
 
             self.inorder(node.right)
             print node.data
-
-
-    
-
-
-
-
