@@ -1,0 +1,43 @@
+1.1 An Introduction -- No Tasks
+1.2 Code Editors -- No Tasks
+1.3 Developer Console -- No Tasks
+
+JS Fundamentals:
+2.1 Hello, world!
+Show an alert. Create a page that shows a message “I’m JavaScript!”.
+	
+	<script>
+		alert( "I’m JavaScript!" );
+	</script>
+
+Take the solution of the previous task Show an alert. Modify it by extracting the script content into an external file alert.js, residing in the same folder.
+
+	Html file
+	<script src="test.js"></script>
+
+	JS file
+	alert( "I’m JavaScript!" );
+
+2.2 Code Structure -- No Tasks
+2.3 The Modern Mode -- No Tasks
+2.4 Variables
+
+	1) 
+		a) Declare two variables: admin and name.
+			let admin
+			let name 
+
+		b) Assign the value "John" to name.
+			let name = “John”
+
+		c) Copy the value from name to admin.
+			let name = “John”
+			let admin = name
+
+		d) Show the value of admin using alert (must output “John”).
+			<script>
+				let admin = "John"
+				alert(admin);
+			</script>
+
+2.5 Data Types
