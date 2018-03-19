@@ -13,18 +13,14 @@ class BillTracker(object):
     "Collects and reports transactions."
 
     def __init__(self):
-        self.people = {}
+        self.people = collections.defaultdict(lambda: collections.defaultdict(int))
         
     def log_transaction(self, payer, payee, amount):
         # check if payee/payer are in the dict
         # add/edit their data based on amount owed
-        self.people[payee] = collections.defaultdict(int)
-
-        if self.people[payee][payer]:
-            self.people[payee][payer] += amount
-        else:
-            self.people[payee][payer] = amount
-
+        # self.people[payee] = collections.defaultdict(int)
+        self.people[payee][payer] += amount
+        
     def get_balance(self, payer, payee):
         # check the dict for who owes what
         if self.people[payee][payer]:
@@ -36,9 +32,10 @@ class BillTracker(object):
     def summary(self):
         # go thru whole dict.
         # maybe only print the negative numbers
-        for key, value in self.people.iteritems():
-            if self.people[key][value] > 0:
-                self.get_balance(key, value)
+        for payee, payer_dict in self.people.iteritems():
+            for payer, amount in payer_dict.iteritems():
+                if amount < 0:
+                    self.get_balance(payer, payee)
 
 
 bt = BillTracker()
