@@ -212,6 +212,8 @@ Take the solution of the previous task Show an alert. Modify it by extracting th
 			false
 			Strict equality of different types.
 
+2.9 Interaction: alert, prompt, confirm 
+	1) Create a web-page that asks for a name and outputs it.
 
 
 
