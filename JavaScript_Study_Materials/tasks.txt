@@ -24,20 +24,198 @@ Take the solution of the previous task Show an alert. Modify it by extracting th
 
 	1) 
 		a) Declare two variables: admin and name.
-			let admin
-			let name 
+			let admin;
+			let name; 
 
 		b) Assign the value "John" to name.
-			let name = “John”
+			let name = "John";
 
 		c) Copy the value from name to admin.
-			let name = “John”
-			let admin = name
+			let name = "John";
+			let admin = name;
 
 		d) Show the value of admin using alert (must output “John”).
 			<script>
-				let admin = "John"
+				let admin = "John";
 				alert(admin);
 			</script>
 
+	2) Giving the right name
+			a) Create the variable with the name of our planet. How would you name such a variable?
+				let ourPlanetName = "Earth";
+
+			b) Create the variable to store the name of the current visitor. How would you name that variable?
+				let currentUserName= "Joe";
+
+	3)	Uppercase const?
+			a) Examine the following code:
+
+				const birthday = '18.04.1982';
+
+				const age = someCode(birthday);
+
+				Here we have a constant birthday date and the age is calculated from birthday with the help of some code (it is not provided for shortness, and because details don’t matter here).
+
+				Would it be right to use upper case for birthday? For age? Or even for both?
+
+				const BIRTHDAY = '18.04.1982'; // make uppercase?
+
+				const AGE = someCode(BIRTHDAY); // make uppercase?
+
+					ANSWER: We generally use upper case for constants that are “hard-coded”. Or, in other words, when the value is known prior to execution and directly written into the code.
+
+					In this code, birthday is exactly like that. So we could use the upper case for it.
+
+					In contrast, age is evaluated in run-time. Today we have one age, a year after we’ll have another one. It is constant in a sense that it does not change through the code execution. But it is a bit “less of a constant” than birthday, it is calculated, so we should keep the lower case for it.
+
+
 2.5 Data Types
+	1) String quotes
+		What is the output of the script?
+
+		let name = "Ilya";
+
+		alert( `hello ${1}` ); // ?
+
+		alert( `hello ${"name"}` ); // ?
+
+		alert( `hello ${name}` ); // ?
+
+			ANSWER:
+				hello 1
+				hello name
+				hello Ilya
+
+2.6 Type Conversions
+	1)Type conversions
+		What are results of these expressions?
+
+		"" + 1 + 0
+			"" + "1" + "0"
+			0 + "1" + "0"
+			"10"
+
+		"" - 1 + 0
+			0 - 1 + 0
+			-1
+
+		true + false
+			1 + 0
+			1
+
+		6 / "3"
+			2
+
+		"2" * "3"
+			6
+
+		4 + 5 + "px"
+			"9px"
+
+		"$" + 4 + 5
+			"$" + "4" + "5"
+			"$45"
+
+		"4" - 2
+			"4" - "2"
+			2
+
+		"4px" - 2
+			"4px"-"2"
+			NaN
+
+		7 / 0
+			Infinity
+
+		"  -9\n" + 5
+			"-9\n" + "5"
+			"-9\n5"
+
+		"  -9\n" - 5
+			"-9\n" - "5"
+			# the \n acts as a new line
+			-9 - 5
+			-14
+
+		null + 1
+			0 + 1
+			1
+
+		undefined + 1
+			NaN + 1
+			NaN
+
+2.7 Operators
+	1)The postfix and prefix forms
+		What are the final values of all variables a, b, c and d after the code below?
+
+		let a = 1, b = 1;
+
+		let c = ++a; // ?
+		let d = b++; // ?
+
+			ANSWER:
+				a = 2
+				b = 2
+				c = 2
+				d = 1
+
+				let a = 1, b = 1;
+
+				alert( ++a ); // 2, prefix form returns the new value
+				alert( b++ ); // 1, postfix form returns the old value
+
+				alert( a ); // 2, incremented once
+				alert( b ); // 2, incremented once
+
+	2) Assignment result
+		What are the values of a and x after the code below?
+
+		let a = 2;
+
+		let x = 1 + (a *= 2);
+
+			ANSWER:
+			x = 1 + (2 *= 2);
+			x = 1 + (4)
+			x = 5
+
+2.8 Comparison
+	1)Comparisons
+		What will be the result for expressions?
+
+		5 > 4
+			true
+
+		"apple" > "pineapple"
+			false
+			Dictionary comparison, hence false.
+
+		"2" > "12"
+			true
+			Again, dictionary comparison, first char of "2" is greater than the first char of "1".
+
+		undefined == null
+			true
+			Values null and undefined equal each other only.
+
+		undefined === null
+			false
+			Strict equality is strict. Different types from both sides lead to false.
+
+		null == "\n0\n"
+			null == NaN
+			false
+			Values null and undefined equal each other only.
+
+		null === +"\n0\n"
+			false
+			Strict equality of different types.
+
+
+
+
+
+
+
+
