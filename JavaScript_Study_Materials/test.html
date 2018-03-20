@@ -4,14 +4,23 @@
   <script>
     'use strict';
 
-    let answer = prompt("Pick a number.", " ");
+    let userName = prompt("Who's there?", "");
 
-    if (answer > 0) {
-      alert(1);
-    } else if (answer < 0) {
-      alert(-1);
+    if (userName == "Admin") {
+      let password = prompt("Password?", "");
+      
+      if (password == "TheMaster") {
+        alert("Welcome!");
+      } else if (password == null) {
+        alert("Canceled.");
+      } else {
+        alert("Wrong password.");
+      }
+
+    } else if (userName == null) {
+      alert("Canceled.");
     } else {
-      alert(0);
+      alert("I don't know you.");
     }
   </script>
 
