@@ -237,6 +237,241 @@ Take the solution of the previous task Show an alert. Modify it by extracting th
 		0, if equals zero.
 		In this task we assume that the input is always a number.
 
+	4) Check the login
+		Write the code which asks for a login with prompt.
+
+		If the visitor enters "Admin", then prompt for a password, if the input is an empty line or Esc – show “Canceled.”, if it’s another string – then show “I don’t know you”.
+
+		The password is checked as follows:
+
+		If it equals “TheMaster”, then show “Welcome!”,
+		Another string – show “Wrong password”,
+		For an empty string or cancelled input, show “Canceled.”
+
+	5) Rewrite 'if' into '?'
+		Rewrite this if using the ternary operator '?':
+
+		if (a + b < 4) {
+		  result = 'Below';
+		} else {
+		  result = 'Over';
+		}
+
+			ANSWER:
+				result = (a + b < 4) ? 'Below.' : 'Over';
+
+	6) Rewrite 'if..else' into '?'
+		Rewrite if..else using multiple ternary operators '?'.
+
+		For readability, it’s recommended to split the code into multiple lines.
+
+		let message;
+
+		if (login == 'Employee') {
+		  message = 'Hello';
+		} else if (login == 'Director') {
+		  message = 'Greetings';
+		} else if (login == '') {
+		  message = 'No login';
+		} else {
+		  message = '';
+		}
+
+			ANSWER:
+				let message = (login == 'Employee') ? 'Hello' :
+					(login == 'Director') ? 'Greetings' :
+					(login == '') ? 'No login' :
+					'';
+
+2.11 Logical Operators
+	1) What's the result of OR?
+		What the code below is going to output?
+
+		alert( null || 2 || undefined );
+
+			ANSWER: 2
+
+	2) What's the result of OR'ed alerts?
+		What the code below will output?
+
+		alert( alert(1) || 2 || alert(3) );
+
+			ANSWER: first 1, then 2.
+
+			The call to alert does not return a value. Or, in other words, it returns undefined.
+
+			The first OR || evaluates it’s left operand alert(1). That shows the first message with 1.
+			The alert returns undefined, so OR goes on to the second operand searching for a truthy value.
+			The second operand 2 is truthy, so the execution is halted, 2 is returned and then shown by the outer alert.
+			There will be no 3, because the evaluation does not reach alert(3).
+
+	3) What is the result of AND?
+		What this code is going to show?
+
+		alert( 1 && null && 2 );
+
+			ANSWER: null
+
+	4) What is the result of AND'ed alerts?
+		What will this code show?
+
+		alert( alert(1) && alert(2) );
+
+			ANSWER: 1, and then undefined.
+
+			The call to alert returns undefined (it just shows a message, so there’s no meaningful return).
+
+			Because of that, && evaluates the left operand (outputs 1), and immediately stops, because undefined is a falsy value. And && looks for a falsy value and returns it, so it’s done.
+
+	5) The result of OR AND OR
+		What will be the result?
+
+		alert( null || 2 && 3 || 4 );
+
+			ANSWER:
+				alert(null || 3 || 4) // 2 && 3 has no falsey, so 3 
+
+				alert(3||4)
+				3 // first truthy value
+
+	6) Check the range between
+		Write an “if” condition to check that age is between 14 and 90 inclusively.
+
+		“Inclusively” means that age can reach the edges 14 or 90.
+
+			ANSWER:
+
+				if (14 <= age && age <= 90)
+
+	7) A question about "if"
+		Which of these alerts are going to execute?
+
+		What will be the results of the expressions inside if(...)?
+
+		a) if (-1 || 0) alert( 'first' );
+		b) if (-1 && 0) alert( 'second' );
+		c) if (null || -1 && 1) alert( 'third' );
+
+			ANSWER:
+			// a) Runs.
+			// The result of -1 || 0 = -1, truthy
+			if (-1 || 0) alert( 'first' );
+
+			// b) Doesn't run
+			// -1 && 0 = 0, falsy
+			if (-1 && 0) alert( 'second' );
+
+			// c) Executes
+			// Operator && has a higher precedence than ||
+			// so -1 && 1 executes first, giving us the chain:
+			// null || -1 && 1  ->  null || 1  ->  1
+			if (null || -1 && 1) alert( 'third' );
+
+2.12 Loops: while and for
+
+	1) Last loop value
+		What is the last value alerted by this code? Why?
+
+		let i = 3;
+
+		while (i) {
+		  alert( i-- );
+		}
+
+			ANSWER:
+				1. Every loop iteration decreases i by 1. The check while(i) stops the loop when i = 0.
+
+	2) Which values shows the while?
+		For every loop, write down which values it shows, in your opinion. And then compare with the answer.
+
+		Both loops alert same values or not?
+
+		a) The prefix form ++i:
+
+			let i = 0;
+			while (++i < 5) alert( i );
+
+			ANSWER:
+				alerts 1 - 4
+				The first value is i=1, because ++i first increments i and then returns the new value. So the first comparison is 1 < 5 and the alert shows 1.
+
+				Then follow 2,3,4… – the values show up one after another. The comparison always uses the incremented value, because ++ is before the variable.
+
+				Finally, i=4 is incremented to 5, the comparison while(5 < 5) fails, and the loop stops. So 5 is not shown.
+
+		b) The postfix form i++
+
+			let i = 0;
+			while (i++ < 5) alert( i );
+
+			ANSWER:
+				alerts 1 - 5
+				The first value is again i=1. The postfix form of i++ increments i and then returns the old value, so the comparison i++ < 5 will use i=0 (contrary to ++i < 5).
+
+				But the alert call is separate. It’s another statement which executes after the increment and the comparison. So it gets the current i=1.
+
+				Then follow 2,3,4…
+
+				Let’s stop on i=4. The prefix form ++i would increment it and use 5 in the comparison. But here we have the postfix form i++. So it increments i to 5, but returns the old value. Hence the comparison is actually while(4 < 5) – true, and the control goes on to alert.
+
+				The value i=5 is the last one, because on the next step while(5 < 5) is false.
+
+	3) Which values get shown by the "for" loop?
+		
+		For each loop write down which values it is going to show. Then compare with the answer.
+
+		Both loops alert same values or not?
+
+		a) The postfix form:
+
+			for (let i = 0; i < 5; i++) alert( i );
+
+			ANSWER: 0 - 4
+
+
+		b) The prefix form:
+
+			for (let i = 0; i < 5; ++i) alert( i );
+
+			ANSWER: 0 - 4
+				That can be easily deducted from the algorithm of for:
+
+				Execute once i = 0 before everything (begin).
+				Check the condition i < 5
+				If true – execute the loop body alert(i), and then i++
+				The increment i++ is separated from the condition check (2). That’s just another statement.
+
+				The value returned by the increment is not used here, so there’s no difference between i++ and ++i.
+
+	4)	Output even numbers in the loop
+			Use the for loop to output even numbers from 2 to 10.
+
+				ANSWER:
+
+					for (let i = 2; i <=10; i++) {
+						if (i % 2 == 0) {
+							alert(i);
+						}
+					}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

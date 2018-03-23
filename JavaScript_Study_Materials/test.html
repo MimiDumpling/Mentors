@@ -4,23 +4,10 @@
   <script>
     'use strict';
 
-    let userName = prompt("Who's there?", "");
-
-    if (userName == "Admin") {
-      let password = prompt("Password?", "");
-      
-      if (password == "TheMaster") {
-        alert("Welcome!");
-      } else if (password == null) {
-        alert("Canceled.");
-      } else {
-        alert("Wrong password.");
+    for (let i = 2; i <=10; i++) {
+      if (i % 2 == 0) {
+        alert(i);
       }
-
-    } else if (userName == null) {
-      alert("Canceled.");
-    } else {
-      alert("I don't know you.");
     }
   </script>
 
