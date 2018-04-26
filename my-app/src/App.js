@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  onClick = (evt) => {
-    evt.preventDefault();
-  }
 
   render() {
 
@@ -21,13 +18,17 @@ class App extends Component {
           To get started, click on a kitty.
         </p>
 
-        <button>
-          <img src={ pancake_intro } className="Pancake-intro" alt="pan-intro" onClick={this.onClick}/>
-        </button>
+        <Link to="/PanList">
+          <button>
+            <img src={ pancake_intro } className="Pancake-intro" alt="pan-intro" onClick={this.onClick}/>
+          </button>
+        </Link>
 
-        <button >
-          <img src={ maple_intro } className="Maple-intro" alt="maple-intro" onClick={this.onClick}/>
-        </button>
+        <Link to="/MapleList">
+          <button >
+            <img src={ maple_intro } className="Maple-intro" alt="maple-intro" onClick={this.onClick}/>
+          </button>
+        </Link>
 
       </div>
     );
