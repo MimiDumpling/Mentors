@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
-
 class CatList extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    power: PropTypes.string.isRequired
   }
 
   render() {
@@ -13,7 +13,7 @@ class CatList extends Component {
       <div className="nav">
         <ul>
           <li>{`Name: ${this.props.name}`}</li>
-          <li>list item</li>
+          <li>{`Super Power: `}<img src={this.props.power}/></li>
         </ul>
         <Link to="/"><button>Back Home</button></Link>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import pancake_intro from './static/pancake_intro.jpg';
-import maple_intro from './static/maple_intro.jpg';
+import pancake_intro from './components/static/pancake_intro.jpg';
+import maple_intro from './components/static/maple_intro.jpg';
 import { Link } from 'react-router-dom';
 import './App.css';
 
