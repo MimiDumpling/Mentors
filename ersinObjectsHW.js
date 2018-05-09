@@ -60,3 +60,22 @@ family.dad.Mimi = "*Dan*"
 family['brother']['Dominic'] = "*Jason*"
 
 console.log(family)
+
+
+/*
+Different ways to say "change the value inside the obj":
+
+Assign a new value to that property.
+  Ex) Assign "quick dog" to property Fido.
+
+Set the value of x to be y.
+  Ex) Set the value of Fido to be "george"
+
+Associate this value with this key.
+  Ex) Associate "merlin" with Fido.
+
+Modify the value of a property.
+
+Add a ___ method to the object.
+
+*/

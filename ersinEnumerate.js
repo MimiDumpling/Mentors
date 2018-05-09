@@ -43,5 +43,5 @@ function arrayMap(array1, array2) {
   return result
 }
 
-console.log(tupleMap([41, 27, 12, 8], [8, 27, 12, 41]))
+console.log(arrayMap([41, 27, 12, 8], [8, 27, 12, 41]))
 // Answer: [[0, 3], [1, 1], [2, 2], [3, 0]

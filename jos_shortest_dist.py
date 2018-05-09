@@ -13,7 +13,11 @@ BONUS: re-write with no maxsize and start at index 1
 def short_dist(integers):
 
     lst = sorted(integers)
+
+    # gives some bigass number
     diff = sys.maxsize
+    print diff
+    
 
     for index, n in enumerate(lst):
         if index < len(lst) - 1:

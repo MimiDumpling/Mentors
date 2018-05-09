@@ -52,6 +52,10 @@ function ransomNote(ransom, magazine) {
   for (const letter of ransom) {
     available[letter] = (available[letter] || 0) + 1
   }
+  // available.letter === available['letter']
+  // available.letter !== available[letter]
+  // const arr = ['hi', 'ho']
+  // arr === { 0: 'hi', 1: 'ho' }
   
   for (const letter of magazine) {
     available[letter] = (available[letter] || 0) - 1
