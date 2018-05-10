@@ -14,7 +14,6 @@ const inventory = [
 
 let justMachines = (obj) => obj['type'] === 'machine';
 let getValues = (accumulator, obj) => accumulator + obj.value;
-let getSum = (total, num) => total + num;
 
 const machines = inventory.filter(justMachines)
 const values = machines.reduce(getValues, 0)
